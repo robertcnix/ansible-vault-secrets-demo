@@ -1,0 +1,29 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: yes
+
+  vars_files:
+  - '{{ deployment }}'
+
+  tasks:
+  - name: including
+    include_vars:
+      file: secrets.yaml
+      name: included
+
+  - debug:
+      var: THIS_SECRET
+
+  - debug:
+      var: THAT_SECRET
+
+  - debug:
+      var: ANOTHER_SECRET
+
+  - debug:
+      var: THIS_IS_CLEAR
+
+  - debug:
+      var: THIS_IS_ALSO_CLEAR
+
